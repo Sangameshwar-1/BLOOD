@@ -24,7 +24,7 @@ A robust Flask-based RESTful API with MongoDB integration for managing users, st
 ### 1. Clone or download the project
 
 ```bash
-cd ~/Documents/Mongodb/food2/backend
+cd ~/<path>/backend
 ```
 
 ### 2. Set up virtual environment
