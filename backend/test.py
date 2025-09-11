@@ -9,6 +9,27 @@ except ImportError:
 import sys
 import time
 
+
+# List of tests happening in the script:
+# 1. Test server connection
+# 2. Test authentication:
+#    - User registration
+#    - User login
+# 3. Test student endpoints:
+#    - Create student
+#    - Get all students
+#    - Get specific student
+#    - Update student
+#    - Delete student
+# 4. Test donor endpoints:
+#    - Create donor
+#    - Get all donors
+#    - Delete donor
+# 5. Test volunteer endpoints:
+#    - Create volunteer
+#    - Get all volunteers
+#    - Delete volunteer
+
 BASE_URL = "http://localhost:5000/api"
 
 class APITester:
@@ -353,3 +374,4 @@ if __name__ == "__main__":
     tester = APITester()
     success = tester.run_all_tests()
     sys.exit(0 if success else 1)
+    
