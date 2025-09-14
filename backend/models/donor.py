@@ -1,6 +1,7 @@
-from mongoengine import Document, StringField, ReferenceField, DateTimeField, FloatField
+from mongoengine import StringField, ReferenceField, DateTimeField, FloatField
+from .base import TimestampedDocument
 
-class Donor(Document):
+class Donor(TimestampedDocument):
     user_id = ReferenceField('User', required=True)
     name = StringField(required=True)
     dob = DateTimeField(required=True)
@@ -11,7 +12,7 @@ class Donor(Document):
     district = StringField(required=True)
     
     def to_json(self):
-        return {
+        data = {
             "id": str(self.id),
             "user_id": str(self.user_id.id),
             "name": self.name,
@@ -22,3 +23,6 @@ class Donor(Document):
             "address": self.address,
             "district": self.district
         }
+        # Add timestamp fields
+        data.update(self.get_timestamp_fields())
+        return data
